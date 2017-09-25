@@ -20,7 +20,14 @@ var spotify = new Spotify({
 });
 
 var action = process.argv[2];
-var value = process.argv[3];
+var value = "";
+var nodeArgs = process.argv;
+
+for (var i = 3; i < nodeArgs.length; i++) {
+
+  // Build a string with the value.
+  value = value + " " + nodeArgs[i];
+}
 
 var queryURL = "http://www.omdbapi.com/?t=" + value +"&apikey=40e9cece";
 
@@ -59,24 +66,27 @@ function tweets(){
 
 function songs(){
 
-	spotify.search({ type: 'track', query: 'Thriller' }, function(err, data) {
-	  	if (err) {
-	    return console.log('Error occurred: ' + err);
-	  	} else {
-		  	for (var key in data){
-			console.log(data[key]);
-			console.log(typeof data);
-			}
-		} 
-	});
+spotify
+  .search({ type: 'track', query: value })
+  .then(function(response) {	
+  	var obj = response.tracks.items;
+  	value = value.trim();
+  	if (obj[0].name = value){
+  	console.log("Artist(s): " + obj[0].artists[0].name);
+  	console.log("The song's name: " + obj[0].name);
+	for (var key in obj[0].artists[0].external_urls) {
+	console.log("A preview link of the song from Spotify: " + obj[0].artists[0].external_urls[key]);
 }
- // console.log("Artist(s): " + data.);
- // console.log("The song's name: " + data);
- // console.log("A preview link of the song from Spotify: " + data.);
- // console.log("The album that the song is from: " + data.);
- // 	}
+  	console.log("The album that the song is from: " + obj[0].album.name);
+	} else{
+		console.log("Sorry, no matches found");
+	}
+  })
+  .catch(function(err) {
+    console.log(err);
+  });
+    	}
 
- // }
 function movie(){
 
 request(queryURL, function(err, response, body){
@@ -109,9 +119,13 @@ request(queryURL, function(err, response, body){
 }
 		
 function says(){
-fs.read("random.txt", "utf8", function(err, data){
-		
-
-
-})
+fs.readFile("random.txt", "utf-8", function(err, data){
+	if (err){
+		return console.log(err);
+	}
+	var output = data.split(", ");
+		for (var i=0; i<output.length; i++){
+		console.log(output[i]);
+		}
+	});
 }
