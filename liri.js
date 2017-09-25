@@ -22,6 +22,7 @@ var spotify = new Spotify({
 var action = process.argv[2];
 var value = "";
 var nodeArgs = process.argv;
+var queryURL ="";
 
 for (var i = 3; i < nodeArgs.length; i++) {
 
@@ -29,7 +30,6 @@ for (var i = 3; i < nodeArgs.length; i++) {
   value = value + " " + nodeArgs[i];
 }
 
-var queryURL = "http://www.omdbapi.com/?t=" + value +"&apikey=40e9cece";
 
 
 switch (action) {
@@ -88,7 +88,17 @@ spotify
     	}
 
 function movie(){
+	console.log(typeof(value));
+	if (value === ""){
+	queryURL = "http://www.omdbapi.com/?t=Mr.NoBody&apikey=40e9cece";
+	console.log("this works" + value);
+	movieOut();
+	} else {
+	queryURL = "http://www.omdbapi.com/?t=" + value +"&apikey=40e9cece";
+	movieOut();
+}
 
+function movieOut(){
 request(queryURL, function(err, response, body){
 		if (err) {
 			console.log(err);
@@ -117,6 +127,7 @@ request(queryURL, function(err, response, body){
 		}
 	});
 }
+}
 		
 function says(){
 fs.readFile("random.txt", "utf-8", function(err, data){
@@ -127,5 +138,7 @@ fs.readFile("random.txt", "utf-8", function(err, data){
 		for (var i=0; i<output.length; i++){
 		console.log(output[i]);
 		}
+	action = output[0];
+
 	});
 }
