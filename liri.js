@@ -31,7 +31,6 @@ for (var i = 3; i < nodeArgs.length; i++) {
 }
 
 
-
 switch (action) {
 	case "my-tweets":
 	tweets();
@@ -88,7 +87,7 @@ spotify
     	}
 
 function movie(){
-	console.log(typeof(value));
+
 	if (value === ""){
 	queryURL = "http://www.omdbapi.com/?t=Mr.NoBody&apikey=40e9cece";
 	console.log("this works" + value);
@@ -99,7 +98,7 @@ function movie(){
 }
 
 function movieOut(){
-request(queryURL, function(err, response, body){
+	request(queryURL, function(err, response, body){
 		if (err) {
 			console.log(err);
 		}else {
@@ -116,17 +115,17 @@ request(queryURL, function(err, response, body){
 			console.log("IMDB Rating: " + JSON.parse(body).imdbRating);
 			var rotten = JSON.parse(body).Ratings
 			for (var key in rotten){
-					if (rotten[key].Source === "Rotten Tomatoes"){
-					console.log("Rotten Tomato Rating: " + rotten[key].Value);
+				if (rotten[key].Source === "Rotten Tomatoes"){
+				console.log("Rotten Tomato Rating: " + rotten[key].Value);
 				}
 			}
 			console.log("Country: " + JSON.parse(body).Country);
 			console.log("Languages: " + JSON.parse(body).Language);
 			console.log("Plot: " + JSON.parse(body).Plot);
 			console.log("Actors: " + JSON.parse(body).Actors);				
-		}
-	});
-}
+			}
+		});
+	}
 }
 		
 function says(){
@@ -134,11 +133,14 @@ fs.readFile("random.txt", "utf-8", function(err, data){
 	if (err){
 		return console.log(err);
 	}
-	var output = data.split(", ");
+	var output = data.split(",");
 		for (var i=0; i<output.length; i++){
-		console.log(output[i]);
 		}
 	action = output[0];
+	// console.log(output[0]);
+	value = output[1];
+	// console.log(output[1]);
+	songs();
 
 	});
 }
