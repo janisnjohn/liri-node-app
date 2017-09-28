@@ -85,7 +85,7 @@ spotify
   .then(function(response) {	
   	var obj = response.tracks.items;
   	value = value.trim();
-  	if (obj[0].name = value){
+  	if (obj[0].name.toUpperCase() === value.toUpperCase()){
   		fs.appendFile("log.txt","\r\nArtist(s): " + obj[0].artists[0].name + "\r\nThe song's name: " + obj[0].name + "\r\nThe album that the song is from: " + obj[0].album.name, function(err) {
 			if (err){
 			return console.log(err);
@@ -103,7 +103,7 @@ spotify
 }
   	console.log("The album that the song is from: " + obj[0].album.name);
 	} else{
-		console.log("Sorry, no matches found");
+		console.log("Sorry, no exact matches found");
 	}
   })
   .catch(function(err) {
