@@ -129,3 +129,27 @@ Artist(s): Niall Horan
 The song's name: Slow Hands
 The album that the song is from: Slow Hands
 A preview link of the song from Spotify: https://open.spotify.com/artist/1Hsdzj7Dlq2I7tHP7501T4
+Title: The Star Wars Holiday Special
+Release Year: 1978
+IMDB Rating: 2.3
+Country: USA
+Languages: English
+Plot: Chewbacca and Han Solo try to get home to Chewie's family to celebrate Life Day, which includes various forms of entertainment.
+Actors: Mark Hamill, Harrison Ford, Carrie Fisher, Anthony Daniels
+Rotten Tomato Rating: 43%
+Artist(s): Demi Lovato
+The song's name: Sorry Not Sorry
+The album that the song is from: Tell Me You Love Me
+A preview link of the song from Spotify: https://open.spotify.com/artist/6S2OmqARrzebs0tKUEyXyp
+Artist(s): Harry Styles
+The song's name: Sign of the Times
+The album that the song is from: Sign of the Times
+A preview link of the song from Spotify: https://open.spotify.com/artist/6KImCVD70vtIoJWnq6nGn3
+Artist(s): The Beatles
+The song's name: Hey Jude - Remastered 2015
+The album that the song is from: 1 (Remastered)
+A preview link of the song from Spotify: https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
+Artist(s): Harry Styles
+The song's name: Sign of the Times
+The album that the song is from: Sign of the Times
+A preview link of the song from Spotify: https://open.spotify.com/artist/6KImCVD70vtIoJWnq6nGn3
